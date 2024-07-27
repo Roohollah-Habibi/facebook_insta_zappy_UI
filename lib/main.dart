@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:registration_form/facebook_page.dart';
 import 'package:registration_form/instagram_page.dart';
+import 'package:registration_form/profile/profile_screen.dart';
 
 import 'package:registration_form/zappy_page.dart';
 
@@ -12,6 +13,6 @@ class MyHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-        home: const Instagram());
+        home: const ProfileScreen());
   }
 }

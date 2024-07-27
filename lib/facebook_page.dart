@@ -124,7 +124,7 @@ class _FacebookPageState extends State<FacebookPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: TextField(
-        obscureText: _showEye,
+        obscureText: hasIcon ? _showEye : false,
         decoration: buildInputDecoration(hintText: hintText, hasIcon: hasIcon),
       ),
     );
