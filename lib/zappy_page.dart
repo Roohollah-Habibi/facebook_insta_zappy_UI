@@ -188,7 +188,7 @@ class _ZappyChatState extends State<ZappyChat> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
       child: TextField(
-        obscureText: _showPassword,
+        obscureText: hasEye ? _showPassword : false,
         style: const TextStyle(color: Colors.white),
         decoration: InputDecoration(
           floatingLabelAlignment: FloatingLabelAlignment.center,

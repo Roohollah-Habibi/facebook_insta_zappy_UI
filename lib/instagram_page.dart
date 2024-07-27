@@ -23,8 +23,10 @@ class _InstagramState extends State<Instagram> {
               verticalDirection: VerticalDirection.down,
               children: [
                 Expanded(flex: 3, child: instagramLogoText),
-                txtField(hintText: 'Phone number, username, or email'),
-                txtField(hintText: 'Password', hasIcon: true),
+                txtField(hintText: 'Phone number, username, or email',),
+                txtField(hintText: 'Password', hasIcon: true,func: () => setState(() {
+                  _showEye = !_showEye;
+                }),),
                 forgotPassowrdSection,
                 buildElevatedLoginButton,
                 makeOrSection,
@@ -62,16 +64,6 @@ class _InstagramState extends State<Instagram> {
             )
           ],
         ),
-      ),
-    );
-  }
-
-  Widget txtField({required String hintText, bool hasIcon = false}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 10.0),
-      child: TextField(
-        obscureText: _showEye,
-        decoration: buildInputDecoration(hintText: hintText, hasIcon: hasIcon),
       ),
     );
   }
@@ -180,13 +172,11 @@ class _InstagramState extends State<Instagram> {
   }
 
   InputDecoration buildInputDecoration(
-      {required String hintText, bool hasIcon = false}) {
+      {required String hintText, bool hasIcon = false,void Function()? func}) {
     return InputDecoration(
       suffixIcon: hasIcon
           ? GestureDetector(
-              onTap: () => setState(() {
-                _showEye = !_showEye;
-              }),
+              onTap: func != null ? func : null,
               child: Icon(
                   _showEye ? FontAwesomeIcons.eye : FontAwesomeIcons.eyeSlash),
             )
@@ -203,6 +193,15 @@ class _InstagramState extends State<Instagram> {
         borderRadius: BorderRadius.circular(10),
         borderSide: const BorderSide(
             color: Color.fromARGB(255, 223, 223, 223), width: 2),
+      ),
+    );
+  }
+  Widget txtField({required String hintText, bool hasIcon = false,void Function()? func}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 10.0),
+      child: TextField(
+        obscureText: (func != null) ? _showEye : false,
+        decoration: buildInputDecoration(hintText: hintText, hasIcon: hasIcon,func: func),
       ),
     );
   }
