@@ -1,6 +1,6 @@
 # registration_form
 
-A new Flutter project.
+A new Flutter project creating facebook, instagram, zappy and a profile screen Ui
 
 ## Getting Started
 
