@@ -53,7 +53,7 @@ class _FacebookPageState extends State<FacebookPage> {
       padding: const EdgeInsets.symmetric(vertical: 20.0),
       child: Row(
         children: [
-           Expanded(
+           const Expanded(
             child: Divider(
               color: Colors.black,
               endIndent: 10,

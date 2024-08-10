@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:registration_form/instagram_page.dart';
+import 'package:registration_form/profile/profile_screen.dart';
 
 const imageSrc = 'assets/images/zappyChat.jpg';
 const facebookLogoSrc = 'assets/images/facebooklogo.png';
@@ -164,7 +165,9 @@ class _ZappyChatState extends State<ZappyChat> {
     return SizedBox(
       width: 230,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileScreen(),));
+        },
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(390, 50),
           minimumSize: const Size(200, 50),
